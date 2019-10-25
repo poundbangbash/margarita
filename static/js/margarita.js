@@ -634,6 +634,7 @@ MargaritaApp.addInitializer(function () {
 
 	navbar.queuedChangesButton.show(new QueuedChangesButtonView({collection: MargaritaApp.productChanges}));
 	navbar.toggleHideCommonButton.show(new ToggleHideCommonButtonView({model: MargaritaApp.filterCriteria}));
+	navbar.toggleHideVoicesButton.show(new ToggleHideVoicesButtonView({model: MargaritaApp.filterCriteria}));
 	navbar.searchBox.show(new SearchBoxView({model: MargaritaApp.filterCriteria}));
 
 	MargaritaApp.trigger('catalogsChanged');
