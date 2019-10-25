@@ -156,6 +156,10 @@ var FilterCriteria = Backbone.Model.extend({
 			if (proddiff.length != 0)  show = true;
 		}
 
+		var voice_title = product.get('title');
+			if (voice_title.includes('Voice Update'))
+				show = false;
+				
 		var filterText = this.get('filterText');
 		if (filterText) {
 			var title = product.get('title');
