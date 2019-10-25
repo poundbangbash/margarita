@@ -123,6 +123,7 @@ var Products = Backbone.PageableCollection.extend({
 var FilterCriteria = Backbone.Model.extend({
 	defaults: {
 		hideCommon: true
+		hideVoices: true
 	},
 	initialize: function(options) {
 		this.products = options.products;
