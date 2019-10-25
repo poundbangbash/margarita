@@ -155,10 +155,6 @@ var FilterCriteria = Backbone.Model.extend({
 			// if we're not listed in all branches then show the update
 			if (proddiff.length != 0)  show = true;
 		}
-
-		var voice_title = product.get('title');
-			if (voice_title.includes('Voice Update'))
-				show = false;
 				
 		var filterText = this.get('filterText');
 		if (filterText) {
@@ -167,6 +163,11 @@ var FilterCriteria = Backbone.Model.extend({
 				show = false;
 		}
 
+        if (this.get('hideVoices') == false) {
+            var voice_title = product.get('title');
+			if (voice_title.includes('Voice Update'))
+				show = false;
+        }
 		return show;
 	},
 	doFilter: function () {
@@ -268,6 +269,23 @@ var ToggleHideCommonButtonView = Backbone.Marionette.ItemView.extend({
 
 		// toggle the hideCommon flag
 		this.model.set('hideCommon', !this.model.get('hideCommon'));
+	},
+});
+
+
+var ToggleHideVoicesButtonView = Backbone.Marionette.ItemView.extend({
+	tagName: 'a',
+	attributes: { 'href': '#' },
+	events: { 'click': 'click' },
+	template: '#toggleHideVoicesBtnViewTpl',
+	initialize: function() {
+		this.model.bind('change', this.render, this);
+	},
+	click: function(ev) {
+		ev.preventDefault();
+
+		// toggle the hideVoices flag
+		this.model.set('hideVoices', !this.model.get('hideVoices'));
 	},
 });
 
