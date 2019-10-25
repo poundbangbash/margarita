@@ -122,7 +122,7 @@ var Products = Backbone.PageableCollection.extend({
 
 var FilterCriteria = Backbone.Model.extend({
 	defaults: {
-		hideCommon: true
+		hideCommon: true,
 		hideVoices: true
 	},
 	initialize: function(options) {
@@ -166,7 +166,7 @@ var FilterCriteria = Backbone.Model.extend({
 
         if (this.get('hideVoices') == false) {
             var voice_title = product.get('title');
-			if (voice_title.includes('Voice Update'))
+			if (voice_title.includes('Voice Update') || voice_title.includes('Multi-Lingual Voices'))
 				show = false;
         }
 		return show;
