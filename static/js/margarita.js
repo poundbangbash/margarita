@@ -319,6 +319,7 @@ var NavbarLayout = Backbone.Marionette.Layout.extend({
 	regions: {
 		queuedChangesButton:    "#queuedChangesButtonViewRegion",
 		toggleHideCommonButton: "#toggleHideCommonButtonViewRegion",
+		toggleHideVoicesButton: "#toggleHideVoicesButtonViewRegion",
 		searchBox: '#rgn-search',
 	}
 });
